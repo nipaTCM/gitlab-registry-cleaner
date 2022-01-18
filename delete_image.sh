@@ -18,6 +18,7 @@ PROJECT=${LASTPART%%:*}
 [ -z "$CI_ACCOUNT_LONG" ] && echo "You need to set the CI_ACCOUNT_LONG environment variable to '[user]:[password]' where user is a valid Gitlab user that has access to the Gitlab image you want to delete." && exit 1;
 
 GITLAB_URL=$(echo $CI_PROJECT_URL | awk -F/ '{print $1"//"$3}')
+echo $GITLAB_URL
 
 # Authenticates with Gitlab Registry
 # CI_ACCOUNT env var should contain "login:password" of a user that has access to repository
